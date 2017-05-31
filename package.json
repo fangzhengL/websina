@@ -1,0 +1,26 @@
+{
+  "name": "wensina",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=dev webpack-dev-server --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "antd-mobile": "^1.1.3",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.4",
+    "react": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.2.0",
+    "open-browser-webpack-plugin": "^0.0.5",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
