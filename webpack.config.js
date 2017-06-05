@@ -53,17 +53,14 @@ module.exports = {
     //插件，比loader更强大，能使用更多webpack的api
     plugins: [
 
-        new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.demo.html'
-        }),
+        // new HtmlWebpackPlugin({
+        //     template: __dirname + '/src/index.demo.html'
+        // }),
 
         // 热加载插件
         new webpack.HotModuleReplacementPlugin(),
 
-        // 打开浏览器
-        new OpenBrowserPlugin({
-            url: 'http://localhost:8080'
-        }),
+
 
         // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
         new webpack.DefinePlugin({
@@ -71,13 +68,23 @@ module.exports = {
         })
     ],
 
+    // devServer: {
+    //     contentBase: "./public", //本地服务器所加载的页面所在的目录
+    //     colors: true, //终端中输出结果为彩色
+    //     historyApiFallback: true, //不跳转
+    //     inline: true, //实时刷新
+    //     hot: true  // 使用热加载插件 HotModuleReplacementPlugin
+    // }
+
     devServer: {
-        contentBase: "./public", //本地服务器所加载的页面所在的目录
-        colors: true, //终端中输出结果为彩色
-        historyApiFallback: true, //不跳转
-        inline: true, //实时刷新
-        hot: true  // 使用热加载插件 HotModuleReplacementPlugin
-    }
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        },
+        host: '0.0.0.0',
+        hot: true,
+        inline: true,
+        port: 3004,
+    },
 
 
 }
