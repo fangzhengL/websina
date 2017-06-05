@@ -9,4 +9,5 @@ import Koa from 'koa'
 import matchRouter from "./matchRoute"
 import router from "./Routers/Home"
 import routers from "../src/router"
-new Koa().use(matchRouter(routers)).use(router.routers()).use(router.allowedMethods())
+import viewhook from "./viewHook"
+new Koa().use(matchRouter(routers)).use(router.routers()).use(router.allowedMethods()).use(viewhook())
