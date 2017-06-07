@@ -3,6 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 module.exports = {
     //程序入口
     entry: path.resolve(__dirname, 'src/index.jsx'),
@@ -10,8 +11,9 @@ module.exports = {
 
     // 生成文件的路径的文件名字
     output: {
-        path: __dirname + "/build",
-        filename: "bundle.js"
+        path: './public',
+        filename: "bundle.js",
+        publicPath: 'http://localhost:3001/'
     },
 
     devtool:"source-map",
@@ -53,28 +55,15 @@ module.exports = {
     //插件，比loader更强大，能使用更多webpack的api
     plugins: [
 
-        // new HtmlWebpackPlugin({
-        //     template: __dirname + '/src/index.demo.html'
-        // }),
-
         // 热加载插件
         new webpack.HotModuleReplacementPlugin(),
-
-
 
         // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
         new webpack.DefinePlugin({
             __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
-        })
-    ],
+        }),
 
-    // devServer: {
-    //     contentBase: "./public", //本地服务器所加载的页面所在的目录
-    //     colors: true, //终端中输出结果为彩色
-    //     historyApiFallback: true, //不跳转
-    //     inline: true, //实时刷新
-    //     hot: true  // 使用热加载插件 HotModuleReplacementPlugin
-    // }
+    ],
 
     devServer: {
         headers: {
@@ -83,8 +72,7 @@ module.exports = {
         host: '0.0.0.0',
         hot: true,
         inline: true,
-        port: 3004,
+        port: 3001,
     },
-
-
+    cache: true,
 }

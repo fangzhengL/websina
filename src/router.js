@@ -5,7 +5,7 @@
 import { Router, Route, IndexRoute } from 'react-router'
 import React, {Component} from 'react';
 import App from "./components/App"
-export default (
+module.exports = (
     <Route>
         <Route path='/' component={App}/>
     </Route>

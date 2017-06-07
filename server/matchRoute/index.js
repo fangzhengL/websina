@@ -1,6 +1,3 @@
-/**
- * Created by hzn on 2017/6/5.
- */
 import { match } from 'react-router'
 
 export default function (routes) {
